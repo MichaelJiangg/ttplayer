@@ -3,93 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>现代音乐播放器</title>
+    <title>2025千千静听</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script> </head>
+</head>
 <body>
-    <div class="background-image-container"></div> <div class="player-app-container">
-        <div class="top-address-bar">
-            <input type="text" placeholder="Audiobuck" readonly>
+    <div class="player-container">
+        <div class="title-bar">
+            <span class="player-name">千千静听</span>
+            <div class="window-controls">
+                <button class="control-btn minimize">-</button>
+                <button class="control-btn maximize">口</button>
+                <button class="control-btn close">×</button>
+            </div>
         </div>
 
-        <div class="main-player-window">
-            <nav class="sidebar">
-                <div class="sidebar-icon active"><i class="fa-solid fa-house"></i></div>
-                <div class="sidebar-icon"><i class="fa-solid fa-music"></i></div>
-                <div class="sidebar-icon"><i class="fa-solid fa-list"></i></div>
-                <div class="sidebar-icon"><i class="fa-solid fa-gear"></i></div>
-            </nav>
-
-            <main class="content-area">
-                <header class="content-header">
-                    <div class="header-left">
-                        <button class="icon-btn"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button class="icon-btn"><i class="fa-solid fa-rotate-right"></i></button> </div>
-                    <div class="header-tabs">
-                        <span class="tab-item active">Overview</span>
-                        <span class="tab-item">Related Artist</span>
-                        <span class="tab-item">Lyrics</span>
+        <div class="main-content">
+            <div class="song-info-visualizer">
+                <div class="song-details">
+                    <span id="track-info">请选择音频文件</span>
+                </div>
+                <div class="visualizer-area">
                     </div>
-                    <div class="header-right">
-                        </div>
-                </header>
+            </div>
 
-                <section class="artist-hero-section">
-                    <div class="artist-info">
-                        <p class="artist-label">Artist</p>
-                        <h1 id="hero-artist-name">Linkin Park</h1> <p class="song-count" id="hero-song-count">241 songs Total</p> <div class="artist-actions">
-                            <button class="btn btn-primary">Following</button>
-                            <button class="btn btn-secondary" id="hero-play-all-btn">Play all</button>
-                        </div>
-                    </div>
-                    <div class="artist-image" id="hero-artist-image">
-                         <img src="default_artist_art.png" alt="Artist Image"> </div>
-                </section>
-
-                <section class="playlist-section">
-                    <div class="playlist-header">
-                        <h2>Top Playlist</h2>
-                        <div class="playlist-controls">
-                            <button class="icon-btn" id="shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
-                            <button class="icon-btn" id="repeat-btn"><i class="fa-solid fa-repeat"></i></button> </div>
-                    </div>
-                    <ul class="song-list" id="playlist-ul"> </ul>
-                </section>
-            </main>
+            <div class="playback-status">
+                <div id="current-time">00:00</div>
+                <div id="total-time">00:00</div>
+                <div id="audio-type">立体声</div>
+                <div id="play-status">状态: 空闲</div>
+            </div>
         </div>
 
-        <footer class="playback-bar">
-            <div class="playback-controls-left">
-                <button class="icon-btn large-icon" id="prev-track-btn"><i class="fa-solid fa-backward-step"></i></button>
-                <button class="icon-btn large-icon play-pause-btn" id="footer-play-pause-btn"><i class="fa-solid fa-play"></i></button>
-                <button class="icon-btn large-icon" id="next-track-btn"><i class="fa-solid fa-forward-step"></i></button>
-            </div>
-            <div class="current-track-info">
-                <img src="default_album_art.png" alt="Current Track" id="footer-current-track-art">
-                <div class="track-text">
-                    <span id="footer-current-track-title">No track selected</span>
-                    <span id="footer-current-track-artist"></span>
-                </div>
-                <input type="range" id="footer-progress-bar" class="footer-progress" value="0" min="0" max="100">
-            </div>
-            <div class="playback-times">
-                <span id="footer-current-time">0:00</span> / <span id="footer-total-time">0:00</span>
-            </div>
-            <div class="playback-controls-right">
-                <button class="icon-btn" id="lyrics-btn"><i class="fa-solid fa-closed-captioning"></i></button>
-                <button class="icon-btn" id="queue-btn"><i class="fa-solid fa-list-ul"></i></button>
-                <button class="icon-btn" id="devices-btn"><i class="fa-solid fa-desktop"></i></button>
-                <div class="volume-control-footer">
-                     <button class="icon-btn" id="volume-mute-btn"><i class="fa-solid fa-volume-low"></i></button> <input type="range" id="footer-volume-slider" class="volume-slider-modern" min="0" max="1" step="0.01" value="1">
-                </div>
-            </div>
-        </footer>
+        <div class="progress-bar-container">
+            <input type="range" id="progress-bar" value="0" min="0" max="100">
+        </div>
 
-        <input type="file" id="audio-file-input" accept="audio/*,audio/mpeg" multiple webkitdirectory directory style="display: none;">
-        <button id="open-files-or-folder-btn" style="position:fixed; bottom:10px; left:10px; z-index:1000; padding:10px; background:var(--accent-color); color:white; border:none; border-radius:5px; cursor:pointer;">Open Files/Folder</button>
+        <div class="controls">
+            <button id="play-pause-btn" class="control-icon">►</button>
+            <button id="stop-btn" class="control-icon">■</button>
+            <button id="prev-btn" class="control-icon">◄◄</button>
+            <button id="next-btn" class="control-icon">►►</button>
+            <button id="open-file-btn" class="control-icon">📂</button>
+            <input type="file" id="audio-file-input" accept="audio/*,audio/mpeg" multiple webkitdirectory directory style="display: none;">
+            <button id="open-url-btn" class="control-icon">🌐</button>
+            <div class="volume-control">
+                <span class="volume-icon">🔊</span>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+            </div>
+            <button id="playlist-toggle-btn" class="control-icon">☰</button>
+            <button id="play-mode-btn" class="control-icon">🔁</button>
+        </div>
 
+        <div class="playlist-container">
+            <h3>播放列表</h3>
+            <ul id="playlist">
+                </ul>
+        </div>
     </div>
 
-    <audio id="audio-player-element"></audio> <script src="script.js"></script>
+    <audio id="audio-player"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
