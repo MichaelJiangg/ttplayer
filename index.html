@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025千千静听</title>
+    <title>网页版千千静听</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,8 +29,7 @@
             <div class="playback-status">
                 <div id="current-time">00:00</div>
                 <div id="total-time">00:00</div>
-                <div id="audio-type">立体声</div>
-                <div id="play-status">状态: 空闲</div>
+                <div id="audio-type">立体声</div> <div id="play-status">状态: 空闲</div>
             </div>
         </div>
 
@@ -39,29 +38,24 @@
         </div>
 
         <div class="controls">
-            <button id="play-pause-btn" class="control-icon">►</button>
-            <button id="stop-btn" class="control-icon">■</button>
+            <button id="play-pause-btn" class="control-icon">►</button> <button id="stop-btn" class="control-icon">■</button>
             <button id="prev-btn" class="control-icon">◄◄</button>
             <button id="next-btn" class="control-icon">►►</button>
             <button id="open-file-btn" class="control-icon">📂</button>
-            <input type="file" id="audio-file-input" accept="audio/*,audio/mpeg" multiple webkitdirectory directory style="display: none;">
-            <button id="open-url-btn" class="control-icon">🌐</button>
-            <div class="volume-control">
+            <input type="file" id="audio-file-input" accept="audio/*" multiple style="display: none;">
+            <button id="open-url-btn" class="control-icon">🌐</button> <div class="volume-control">
                 <span class="volume-icon">🔊</span>
                 <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
             </div>
             <button id="playlist-toggle-btn" class="control-icon">☰</button>
-            <button id="play-mode-btn" class="control-icon">🔁</button>
-        </div>
+            <button id="play-mode-btn" class="control-icon">🔁</button> </div>
 
-        <div class="playlist-container">
-            <h3>播放列表</h3>
+        <div class="playlist-container">  <h3>播放列表</h3>
             <ul id="playlist">
                 </ul>
         </div>
     </div>
 
-    <audio id="audio-player"></audio>
-    <script src="script.js"></script>
+    <audio id="audio-player"></audio> <script src="script.js"></script>
 </body>
 </html>
